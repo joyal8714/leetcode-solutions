@@ -1,0 +1,30 @@
+/**
+ * @param {string} s
+ * @return {boolean}  // s={)[}}
+ */
+var isValid = function(s) {
+    let stack = [];
+
+    const map = {
+        ')': '(',
+        '}': '{',
+        ']': '['
+    };
+
+    for (let i = 0; i < s.length; i++) {
+        let ch = s[i];
+
+        if (ch === '(' || ch === '{' || ch === '[') {
+           
+            stack.push(ch);
+        } else {
+            if (stack.length === 0 || stack[stack.length - 1] !== map[ch]) {
+                return false;
+            }
+            stack.pop(); 
+        }
+    }
+
+    
+    return stack.length === 0;
+};
