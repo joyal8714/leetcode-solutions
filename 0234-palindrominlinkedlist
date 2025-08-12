@@ -1,0 +1,58 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var isPalindrome = function(head) {
+    if(head==null || head.next==null){
+        return true
+    }
+
+
+//lets see the middle
+
+
+let slow=head
+let fast=head
+
+while(fast!==null && fast.next!==null){
+ slow=slow.next
+ fast=fast.next.next
+}
+
+//reversing
+
+let prev=null
+let current=slow
+while(current!==null){
+    const nextnode=current.next
+    current.next=prev
+
+    prev=current
+    current=nextnode
+}
+
+let secondhalfhead=prev
+
+let firsthalfhead=head
+
+while (secondhalfhead!==null){
+    if(firsthalfhead.val!==secondhalfhead.val){
+return false
+    }
+
+
+firsthalfhead=firsthalfhead.next
+secondhalfhead=secondhalfhead.next
+}
+
+return true
+
+
+};
