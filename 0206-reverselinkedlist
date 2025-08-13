@@ -9,10 +9,11 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
-    let previous=null
+var reverseList = function(head) {            // 1-->2-->3-->4
+    let previous=null                          // i want like this 1<--2<--3<--4
     let current=head
-
+                                               
+                                                 // then 4-->3-->2-->1
 
 while(current!==null){
     const nextnode=current.next
